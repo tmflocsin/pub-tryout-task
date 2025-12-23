@@ -4,11 +4,41 @@ import { Send } from 'lucide-react';
 
 export default function Contact() {
   const [status, setStatus] = useState("");
+  // State to hold form data
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    setTimeout(() => setStatus("success"), 1000);
+
+    try {
+      const response = await fetch('https://izola-wheezy-kasey.ngrok-free.dev/webhook/contact-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: '', email: '', message: '' }); // Clear form
+        setTimeout(() => setStatus(""), 3000);
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setStatus("error");
+    }
   };
 
   return (
@@ -30,14 +60,23 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="p-12 md:w-3/5 space-y-6">
             <div className="grid grid-cols-1 gap-6">
               <input 
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 type="text" placeholder="Your Name" required
                 className="w-full px-6 py-4 rounded-xl bg-coconut border border-caramel/20 focus:outline-none focus:border-strawberry text-navy font-medium"
               />
               <input 
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 type="email" placeholder="Email Address" required
                 className="w-full px-6 py-4 rounded-xl bg-coconut border border-caramel/20 focus:outline-none focus:border-strawberry text-navy font-medium"
               />
               <textarea 
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="How can we help you?" rows={4} required
                 className="w-full px-6 py-4 rounded-xl bg-coconut border border-caramel/20 focus:outline-none focus:border-strawberry text-navy font-medium"
               />
@@ -48,7 +87,7 @@ export default function Contact() {
               disabled={status === "sending"}
               className="w-full bg-strawberry text-white font-bold py-4 rounded-xl shadow-lg hover:brightness-110 transition-all flex items-center justify-center gap-2"
             >
-              {status === "success" ? "Message Sent!" : "Send Message"}
+              {status === "success" ? "Message Sent!" : status === "error" ? "Try Again" : "Send Message"}
               <Send size={18} />
             </button>
           </form>
