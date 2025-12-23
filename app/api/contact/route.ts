@@ -5,7 +5,7 @@ export async function POST(req: Request) {
     const body = await req.json();
 
     const response = await fetch(
-      'https://izola-wheezy-kasey.ngrok-free.dev/webhook-test/career-form',
+      'https://izola-wheezy-kasey.ngrok-free.dev/webhook-test/contact-form',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true'},

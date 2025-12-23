@@ -15,26 +15,28 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Inside your handleSubmit in Contact.tsx
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/contact', { 
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: '', email: '', message: '' }); // Clear form
+        setFormData({ name: '', email: '', message: '' });
         setTimeout(() => setStatus(""), 3000);
       } else {
         setStatus("error");
       }
     } catch (error) {
-      console.error("Submission error:", error);
       setStatus("error");
     }
   };
