@@ -8,7 +8,7 @@ export async function POST(req: Request) {
       'https://izola-wheezy-kasey.ngrok-free.dev/webhook-test/career-form',
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true'},
         body: JSON.stringify(body),
       }
     );
