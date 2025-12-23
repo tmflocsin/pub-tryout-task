@@ -20,7 +20,7 @@ export default function Contact() {
     setStatus("sending");
 
     try {
-      const response = await fetch('https://izola-wheezy-kasey.ngrok-free.dev/webhook/contact-form', {
+      const response = await fetch('https://izola-wheezy-kasey.ngrok-free.dev/webhook-test/career-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
