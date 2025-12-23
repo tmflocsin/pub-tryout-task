@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden bg-coconut">
+    <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden bg-coconut pt-28 pb-28 md:pt-32">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-linear-to-r from-coconut via-coconut/80 to-transparent z-10" />
         <img 
