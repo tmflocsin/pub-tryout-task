@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-coconut: #F5F0E6;
+  --color-navy: #0A2E4F;
+  --color-strawberry: #FF7EB9;
+  --color-caramel: #A67C52;
+  --color-espresso: #2D241E;
+}
+
+:root {
+  background-color: var(--color-coconut);
+  color: var(--color-navy);
+}
