@@ -43,7 +43,7 @@ export default function Navbar() {
               <a 
                 key={link.name}
                 href={link.href} 
-                className="hover:text-strawberry transition-all relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-strawberry after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
+                className="hover:text-strawberry transition-all relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-strawberry after:left-0 after:-bottom-1 hover:after:w-full after:transition-all"
               >
                 {link.name}
               </a>

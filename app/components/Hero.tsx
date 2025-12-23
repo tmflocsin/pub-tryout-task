@@ -2,7 +2,8 @@ import React from 'react';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden bg-coconut pt-24 md:pt-32">
+    <section id="home" className="relative min-h-svh flex items-center overflow-hidden bg-coconut">
+      
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-linear-to-r from-coconut via-coconut/80 to-transparent z-10" />
         <img 
@@ -12,9 +13,9 @@ export default function Hero() {
         />
       </div>
 
-      <div className="container mx-auto px-8 z-20">
+      <div className="container mx-auto px-8 z-20 pt-24 md:pt-0">
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-bold tracking-widest text-caramel uppercase bg-white/50 backdrop-blur-sm rounded-md border border-caramel/20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 mt-15 mb-6 text-xs font-bold tracking-widest text-caramel uppercase bg-white/50 backdrop-blur-sm rounded-md border border-caramel/20">
             <span className="w-2 h-2 rounded-full bg-strawberry animate-pulse" />
             TM's Frozen Delights
           </div>
@@ -46,7 +47,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-10 right-10 hidden lg:block">
+      <div className="absolute bottom-10 right-10 hidden lg:block z-20">
         <div className="bg-white/20 backdrop-blur-xl p-4 rounded-2xl border border-white/30 rotate-3 shadow-xl">
           <p className="text-navy font-bold italic text-sm">"The best scoop in Manila!" — FoodBuds PH</p>
         </div>
