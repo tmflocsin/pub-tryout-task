@@ -4,7 +4,7 @@ import { Send } from 'lucide-react';
 
 export default function Contact() {
   const [status, setStatus] = useState("");
-  // State to hold form data
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,7 +15,6 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Inside your handleSubmit in Contact.tsx
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");

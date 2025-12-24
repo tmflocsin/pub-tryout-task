@@ -6,7 +6,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Add a shadow when scrolling to give it depth
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
@@ -27,7 +26,6 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-5">
         <div className="flex items-center justify-between">
           
-          {/* Logo Section - Perfectly Centered Vertically */}
           <div className="flex items-center gap-3 group cursor-pointer">
             <div className="bg-strawberry p-2 rounded-xl group-hover:rotate-12 transition-transform shadow-lg shadow-strawberry/20">
               <IceCream className="text-white" size={24} />
@@ -37,7 +35,6 @@ export default function Navbar() {
             </span>
           </div>
 
-          {/* Desktop Menu - Improved spacing and active states */}
           <div className="hidden md:flex items-center gap-12 font-semibold text-navy/70 uppercase text-xs tracking-[0.2em]">
             {navLinks.map((link) => (
               <a 
@@ -50,7 +47,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Mobile Menu Button - Rounded and Styled */}
           <div className="md:hidden">
             <button 
               onClick={() => setIsOpen(!isOpen)} 
@@ -62,7 +58,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay - Smooth Slide-down animation */}
       <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-caramel/10 ${
         isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
       }`}>
